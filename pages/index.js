@@ -15,17 +15,22 @@ export default function Home() {
       </Head>
      
      {/* Header */}
+
         <Header/>
+
+        {/* main section */}
+
      <main className = "flex">
        {/* Sidebar */}
          <Sidebar/>
        {/* Feed */}
         <Feed/>
+        
        {/* Widgets */}
 
        <Widgets />
-       
-     </main>
+    </main>
+
     </div>
   );
 }
