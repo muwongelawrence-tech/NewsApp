@@ -22,15 +22,35 @@ export default function Home() {
 
      <main className = "flex">
        {/* Sidebar */}
-         <Sidebar/>
+         {/* <Sidebar/> */}
        {/* Feed */}
         <Feed/>
         
        {/* Widgets */}
 
-       <Widgets />
+       {/* <Widgets /> */}
     </main>
 
     </div>
   );
+}
+
+
+
+// getting the data from the server.
+
+export async function getServerSideProps(){ 
+
+  const data = 
+  await fetch(``
+  ).then(response => response.json());
+
+  // After the SERVER has rendered.....
+  //pass the results to the client.
+  return {
+    props:{
+      results: data
+    }
+  }
+
 }
