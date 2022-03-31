@@ -31,12 +31,13 @@ function Header() {
     return (
     <header className='sticky top-0 bg-white '>
       <div className='flex w-full p-6 items-center '>
+       
         <Image 
-            src = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/368px-Google_2015_logo.svg.png"
+            src = "/news1.png"
             height = { 40 }
-            width = { 120 }
+            width = { 100 }
             onClick = { () => router.push("/") }
-            className = "cursor-pointer"
+            className = "cursor-pointer "
         />
 
         <form className= {`flex border border-gray-200 rounded-full 
