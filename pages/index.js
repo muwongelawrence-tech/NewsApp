@@ -39,18 +39,18 @@ export default function Home() {
 
 // getting the data from the server.
 
-export async function getServerSideProps(){ 
+// export async function getServerSideProps(){ 
 
-  const data = 
-  await fetch(``
-  ).then(response => response.json());
+//   const data = 
+//   await fetch(``
+//   ).then(response => response.json());
 
-  // After the SERVER has rendered.....
-  //pass the results to the client.
-  return {
-    props:{
-      results: data
-    }
-  }
+//   // After the SERVER has rendered.....
+//   //pass the results to the client.
+//   return {
+//     props:{
+//       results: data
+//     }
+//   }
 
-}
+// }

@@ -4,8 +4,8 @@ import 'tailwindcss/tailwind.css';
 
 function MyApp({ Component, pageProps }) {
   return ( 
-  <Provider session={pageProps.session}>
-    <Component {...pageProps} />
+  <Provider session={ pageProps.session }>
+    <Component { ...pageProps } />
   </Provider>
   );
 }
