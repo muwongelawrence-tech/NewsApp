@@ -9,4 +9,21 @@ module.exports = {
      api_key : process.env.API_KEY
   },
 
+  async headers() {
+    return [
+      {
+        source: '/',
+        headers: [
+          {
+            key: 'x-api-key',
+            value: 'N1RxYQuYfhhWLp0ssfloxHfdsuZfhOZ5gR-eqmgx3ak',
+          },
+          
+        ],
+      },
+    ]
+  },
+
+
+
 }

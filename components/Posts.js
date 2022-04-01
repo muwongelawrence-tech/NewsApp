@@ -6,9 +6,10 @@ import { db } from '../firebase';
 
 import Post from './Post';
 
-function Posts() {
 
-    const [ newPosts , setNewPosts] = useState([])
+function Posts( ) {
+
+    const [ newPosts , setNewPosts ] = useState([]);
 
     // const [ realtimePosts ] = useCollection(
     //     db.collection("posts").orderBy("timestamp" , "desc"),
@@ -22,14 +23,13 @@ function Posts() {
             data : doc.data(),
    
         }))) )
-       },[]);
+    },[]);
 
-       console.log(newPosts);
 
     return (
 
         <div className = "">
-            { newPosts.map(({id , data : {name ,message, email ,timestamp ,postImage}})=> (
+            { newPosts.map(({ id , data : { name ,message, email ,timestamp ,postImage }})=> (
                 <Post 
                  key = { id }
                  name = { name }
@@ -45,3 +45,5 @@ function Posts() {
 }
 
 export default Posts;
+
+
