@@ -2,10 +2,11 @@ import Head from 'next/head';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
 import Feed from '../components/Feed';
+import WeatherApp from '../components/WeatherApp';
 
 export default function Home({ results }) {
 
-   console.log(results);
+  //  console.log(results);
 
   return (
     <div className="h-screen bg-gray-100 overflow-hidden">
@@ -21,16 +22,23 @@ export default function Home({ results }) {
 
         {/* main section */}
 
-     <main className = "flex">
+     <main className = " flex  overflow-y-auto scrollbar-hide ">
+
        {/* Sidebar */}
          {/* <Sidebar/> */}
-       {/* Feed */}
-        <Feed />
-        
-       {/* Widgets */}
 
-       {/* <Widgets /> */}
+         {/* Feed */}
+            <Feed />
+
+         {/* Weather data */}
+              <WeatherApp />
+  
+        
+       
+
     </main>
+
+  
 
     </div>
   );
