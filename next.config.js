@@ -16,7 +16,7 @@ module.exports = {
         headers: [
           {
             key: 'x-api-key',
-            value: 'N1RxYQuYfhhWLp0ssfloxHfdsuZfhOZ5gR-eqmgx3ak',
+            value: '',
           },
           
         ],
