@@ -16,7 +16,7 @@ module.exports = {
         headers: [
           {
             key: 'x-api-key',
-            value: '',
+            value: `${ process.env.api_key }`,
           },
           
         ],
