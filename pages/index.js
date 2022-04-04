@@ -7,16 +7,15 @@ import "react-toastify/dist/ReactToastify.css";
 import WeatherApp from '../components/WeatherApp';
 import { getNews } from '../services/NewsService';
 
- export default  function Home({ results }) {
+ export default  function Home() {
 
-  //  console.log(results);
+    const getData = async () => {
+    const { data : localNews } = await getNews();
+    console.log(localNews);
+  //   console.log("hello");
+   }
 
-  
-
-    async const   getData = () => {
-    const { data } = await getNews();
-    console.log(data);
-  }
+  getData();
 
 
 
