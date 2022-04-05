@@ -9,13 +9,13 @@ import { getNews } from '../services/NewsService';
 
  export default  function Home() {
 
-    const getData = async () => {
-    const { data : localNews } = await getNews();
-    console.log(localNews);
-  //   console.log("hello");
-   }
+  //   const getData = async () => {
+  //   const { data : localNews } = await getNews();
+  //   console.log(localNews);
+  // //   console.log("hello");
+  //  }
 
-  getData();
+  // getData();
 
 
 

@@ -4,39 +4,51 @@ import React, { useEffect, useState } from 'react';
 
 import { db } from '../firebase';
 
+import { getNews } from '../services/NewsService';
+
 import Post from './Post';
 
 
 function Posts( ) {
 
-    const [ newPosts , setNewPosts ] = useState([]);
+  const [ newPosts ,setNewPosts] = useState([]);
 
-    // const [ realtimePosts ] = useCollection(
-    //     db.collection("posts").orderBy("timestamp" , "desc"),
-    // );
+  const getData = async () => {
 
-    
-    useEffect(() =>{
-        db.collection('posts').orderBy("timestamp","desc")
-        .onSnapshot(snapshot => setNewPosts(snapshot.docs.map(doc => ({
-            id: doc.id,
-            data : doc.data(),
-   
-        }))) )
-    },[]);
+    const { data : localNews } = await getNews();
 
+    // newPosts = localNews.articles;
+
+    setNewPosts( localNews.articles);
+
+    // console.log(localNews.articles);
+
+   }
+
+   // fetch data after rendering components in the DOM.
+   useEffect(() => {
+
+      getData();
+
+   });
+
+  
 
     return (
 
         <div className = "">
-            { newPosts.map(({ id , data : { name ,message, email ,timestamp ,postImage }})=> (
+            
+            { newPosts.map(({ id , title , summary, media , link , published_date , country }) => (
                 <Post 
+
                  key = { id }
-                 name = { name }
-                 message = {message}
-                 email = {email}
-                 timestamp = {timestamp}
-                 postImage = {postImage}
+                 title = { title }
+                 summary = { summary }
+                 media = { media }
+                 link = { link }
+                 published_date = { published_date }
+                 country = { country }
+
                  />
             ))}
             
