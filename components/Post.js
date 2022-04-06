@@ -1,5 +1,6 @@
 import { ChatAltIcon, ShareIcon, ThumbUpIcon } from '@heroicons/react/outline';
 import Image from 'next/image';
+import moment from "moment";
 import React from 'react';
 
 function Post({ title , summary, media , link , published_date , country }) {
@@ -22,12 +23,13 @@ function Post({ title , summary, media , link , published_date , country }) {
 
                <a href= { link }
                 className =" text-blue-400 hover:underline"
-               > Go to site </a>
+               > Read More.. </a>
 
-           </div>
+           </div >
 
-           <div>
-
+           <div className='flex justify-between p-2 border-t'>
+               <p> <span className='text-pink-400'> country : </span>{ country  }</p>
+               <p> { moment(published_date).format("MMMM Do YYYY, h:mm a") }</p>
            </div>
 
           

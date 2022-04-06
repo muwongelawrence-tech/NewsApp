@@ -21,7 +21,7 @@ function Posts( ) {
 
     setNewPosts( localNews.articles);
 
-    // console.log(localNews.articles);
+    console.log(localNews.articles);
 
    }
 
