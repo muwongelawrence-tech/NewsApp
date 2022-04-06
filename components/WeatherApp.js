@@ -6,11 +6,8 @@ export default function WeatherApp() {
       max-h-96 p-4'>
        <h2 className='text-gray-600 font-medium'> WeatherApp</h2>
 
-       <p className='text-gray-600'>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-         Quo magnam quibusdam quod praesentium voluptate soluta odio, delectus, 
-         cupiditate voluptas dignissimos dolorem accusantium rem saepe aliquid a ipsum, 
-         labore id suscipit autem unde nemo. Cum veniam perspiciatis soluta doloribus quis! 
-         Exercitationem maiores ipsa vero id sapiente dolorum ab delectus distinctio dignissimos.
+       <p className='text-gray-600'>
+         hello , this is weather data .
        </p>
 
     </div>

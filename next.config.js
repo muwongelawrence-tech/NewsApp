@@ -8,7 +8,8 @@ module.exports = {
   },
 
   env : {
-     api_key : process.env.API_KEY
+     api_key : process.env.API_KEY,
+     weather_key: process.env.WEATHER_KEY
   },
 
  
