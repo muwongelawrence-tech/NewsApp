@@ -8,8 +8,9 @@ function Post({ title , summary, media , link , published_date , country }) {
         <div className = "flex flex-col pb-2 bg-white  mt-5 rounded-md shadow-sm  text-gray-500 overflow-hidden">
             
            <div className='' >
+               
                <img src= { media } 
-                  className = " w-full h-full"
+                  className = " w-full h-full object-cover"
                   alt="" 
                />
             
@@ -29,7 +30,7 @@ function Post({ title , summary, media , link , published_date , country }) {
 
            <div className='flex justify-between p-2 border-t'>
                <p> <span className='text-pink-400'> country : </span>{ country  }</p>
-               <p> { moment(published_date).format("MMMM Do YYYY, h:mm a") }</p>
+               <p> { moment(published_date).format("MMMM Do YYYY, h:mm a") } </p>
            </div>
 
           
