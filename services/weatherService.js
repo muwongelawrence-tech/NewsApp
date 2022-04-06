@@ -1,8 +1,9 @@
 import http from "./httpService";
 
-const apiEndpoint = "";
+const apiEndpoint = 
+`https://api.openweathermap.org/data/2.5/weather?q=Kampala&appid=${ process.env.weather_key}`;
 
-export function getWeatherData(){
+export function getWeatherInformation(){
 
-    return http.get(apiEndpoint );
+    return http.get(apiEndpoint);
 }

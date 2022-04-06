@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-//import { useCollection } from 'react-firebase-hooks/firestore';
-
 import { db } from '../firebase';
 
 import { getNews } from '../services/NewsService';
@@ -21,7 +19,7 @@ function Posts( ) {
 
     setNewPosts( localNews.articles);
 
-    console.log(localNews.articles);
+    // console.log(localNews.articles);
 
    }
 

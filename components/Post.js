@@ -8,7 +8,7 @@ function Post({ title , summary, media , link , published_date , country }) {
         <div className = "flex flex-col pb-2 bg-white  mt-5 rounded-md shadow-sm  text-gray-500 overflow-hidden">
             
            <div className='' >
-               
+
                <img src= { media } 
                   className = " w-full h-full object-cover"
                   alt="" 
