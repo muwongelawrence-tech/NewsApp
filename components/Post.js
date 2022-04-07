@@ -29,7 +29,7 @@ function Post({ title , summary, media , link , published_date , country }) {
            </div >
 
            <div className='flex justify-between p-2 border-t'>
-               <p> <span className='text-pink-400'> country : </span>{ country  }</p>
+               <p> <span className='text-blue-700'> country : </span>{ country  }</p>
                <p> { moment(published_date).format("MMMM Do YYYY, h:mm a") } </p>
            </div>
 

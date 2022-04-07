@@ -1,6 +1,6 @@
 import http from "./httpService";
 
-const apiEndpoint = "https://api.newscatcherapi.com/v2/search?q=sports";
+const apiEndpoint = "https://api.newscatcherapi.com/v2/search?q=entertainment";
 
 export function getNews(){
 

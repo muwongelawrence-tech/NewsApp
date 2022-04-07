@@ -60,10 +60,6 @@ const getWeatherForecastData = async () => {
 
 // console.log( weatherData.weather[0].main);
 
-
-
-
-
 // fetch data after rendering components in the DOM.
     useEffect(() => {
       
@@ -103,15 +99,11 @@ let getDate = new Date();
 
              <h1> { temp } &deg; C</h1>
 
-             {/* <p className=' font-semibold '> { weatherData.weather[0].main } </p> */}
+             <p className=' font-semibold '> { weatherData.weather[0].main } </p>
 
              <h1>  { min_temp }  &deg;C | { max_temp } &deg;C</h1>
 
              <p> Next day's  Forecast</p>
-
-
-
-
           </div>
          
         

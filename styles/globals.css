@@ -9,7 +9,12 @@
     }
 
     .headeroption {
-        @apply hover:text-blue-500 hover:border-b-2 active:border-blue-500
+        @apply hover:text-blue-500 hover:border-b-2 
         hover:border-blue-500 cursor-pointer
     }
+
+    .activeoption {
+        @apply text-blue-500 border-blue-500 border-b-2
+    }
+
 }

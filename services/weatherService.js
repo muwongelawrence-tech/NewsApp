@@ -6,6 +6,8 @@ const apiEndpoint =
 const apiEndpoint2 =
 `https://pro.openweathermap.org/data/2.5/forecast/hourly?q=Kampala&appid=${ process.env.weather_key }`;
 
+
+
 export function getWeatherInformation(){
 
     return http.get(apiEndpoint);
@@ -17,3 +19,4 @@ export function getWeatherForecast(){
 
     return http.get(apiEndpoint2);
 }
+
