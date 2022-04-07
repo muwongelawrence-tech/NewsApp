@@ -67,7 +67,7 @@ const getWeatherForecastData = async () => {
 // fetch data after rendering components in the DOM.
     useEffect(() => {
       
-      // getWeatherData();
+      getWeatherData();
       getWeatherForecastData();
           
     },[]);

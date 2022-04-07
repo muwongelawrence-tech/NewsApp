@@ -14,6 +14,8 @@ function Header() {
 
     const router = useRouter();
 
+    // const[ ]
+
     const searchInputRef = useRef();
 
     const search = e => {
@@ -30,6 +32,7 @@ function Header() {
 
     return (
     <header className='sticky top-0 bg-white '>
+
       <div className='flex w-full p-6 items-center '>
        
         <Image 
@@ -61,6 +64,19 @@ function Header() {
         <Avatar className = "ml-auto" url = "https://coaching.papareact.com/ai9" />
 
 
+      </div>
+
+      <div className=' flex items-center space-x-4  md:space-x-6 justify-center text-gray-600 mb-3 border-b '>
+           <p className='headeroption' onClick = { () => {
+                  newsType("uganda")
+           }}>Local News</p>
+
+           <p className='headeroption' onClick = { () => {
+                  newsType("uganda")
+           }}>Global News </p>
+
+           <p className='headeroption'>Sports News </p>
+           <p className='headeroption'>Entertainment</p>
       </div>
 
     </header>
