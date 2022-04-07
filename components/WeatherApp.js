@@ -1,21 +1,45 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudRain } from '@fortawesome/free-solid-svg-icons';
-import { getWeatherInformation } from '../services/weatherService';
+import { getWeatherForecast, getWeatherInformation } from '../services/weatherService';
+import moment from "moment";
 
 export default function WeatherApp() {
 
   const [ weatherData , setWeatherData] = useState([]);
+  const [ weatherForecast , setWeatherForecast] = useState([]);
+  const [ temp , setTemp] = useState(0);
+  const [ min_temp , setMinTemp] = useState();
+  const [ max_temp  , setMaxTemp ] = useState();
 
+
+  // get weather data 
   const getWeatherData = async () => {
 
     const  { data } = await getWeatherInformation();
 
      setWeatherData(data);
+     setTemp((data.main.temp - 273.15).toFixed(2));
+     setMinTemp(( data.main.temp_min - 273.15).toFixed(2))
+     setMaxTemp((data.main.temp_max -273.15).toFixed(2))
 
-     console.log(weatherData);
+
+    //  console.log(weatherData);
 
 }
+
+
+// getting weather forecast information.
+const getWeatherForecastData = async () => {
+   const { data : forecast } = await getWeatherForecast();
+
+   setWeatherForecast(forecast);
+}
+
+
+// console.log( weatherData.weather[0].main);
+
+console.log(weatherForecast);
 
 
 
@@ -24,7 +48,13 @@ export default function WeatherApp() {
 
       getWeatherData();
 
+      getWeatherForecastData();
+
     });
+
+// Date information
+let getDate = new Date();
+// let formattedDate = `${ getDate.getDay()} / ${ getDate.getMonth()} / ${getDate.getFullYear()}.`;
 
 
   return (
@@ -40,20 +70,20 @@ export default function WeatherApp() {
               <h3 > { weatherData.name }  </h3>
 
               <p className='text-gray-600'>
-                    Wednesday , April 5 ,2022
+                    { moment(getDate).format(" Do MMMM  YYYY, h:mm a")}
               </p>
 
           </div>
 
-          <div className=' flex flex-col items-center m-2'>
+          <div className=' flex flex-col items-center m-2 '>
 
-             <FontAwesomeIcon icon = { faCloudRain } className = "h-20" />
+             <FontAwesomeIcon icon = { faCloudRain } className = "h-20 text-blue-500" />
 
-             <h1> 33.08 &deg; C</h1>
+             <h1> { temp } &deg; C</h1>
 
-             <p className=' font-semibold '> cloudy </p>
+             <p className=' font-semibold '> { weatherData.weather[0].main } </p>
 
-             <h1>  30.07  &deg;C | 33.70 &deg;C</h1>
+             <h1>  { min_temp }  &deg;C | { max_temp } &deg;C</h1>
 
              <p> Next day's  Forecast</p>
 
