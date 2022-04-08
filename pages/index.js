@@ -7,11 +7,24 @@ import "react-toastify/dist/ReactToastify.css";
 import WeatherApp from '../components/WeatherApp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudRain } from '@fortawesome/free-solid-svg-icons';
+import { SearchIcon } from '@heroicons/react/outline';
+import { useState } from 'react';
+import { XIcon } from '@heroicons/react/solid';
 
  export default  function Home() {
 
-      // Date information
-let getDate = new Date();
+  const [ searchCity , setSearchCity] = useState(false);
+
+    // Date information
+    let getDate = new Date();
+
+    const search =  () => {
+      setSearchCity(true);
+    }
+
+    const disableSearch = () => {
+      setSearchCity(false);
+    }
    
   return (
     <div className="h-screen bg-gray-100 overflow-hidden">
@@ -26,12 +39,12 @@ let getDate = new Date();
       <ToastContainer />
      
      {/* Header */}
-
-        <Header/>
+         <Header/>
 
         {/* main section */}
 
-     <main className = " flex  flex-col-reverse md:flex-row md:space-x-3 ">
+     <main className = {`flex  px-5 md:px-20 flex-col-reverse md:flex-row md:space-x-3 md:justify-between 
+           `}>
 
           {/* Feed */}
           <div className=''>
@@ -41,11 +54,36 @@ let getDate = new Date();
           {/* Weather data */}
           {/* <WeatherApp /> */}
 
-       <div className='flex flex-col   bg-white rounded-md w-[400px] m-4 
-                   max-h-96 p-4 text-gray-600 '>
+       <div className='flex-col bg-white rounded-md w-[400px] m-4 
+                   max-h-96 p-4 text-gray-600 hidden md:inline-flex '>
          
-          <div className='border-b  m-2'>
+          <div className=' flex space-x-3  justify-between border-b  m-2'>
              <h2 className='text-gray-600 font-medium '> Weather </h2>
+
+            
+            { searchCity && (
+              <>
+                 <input  type="text"
+                 className='flex-grow w-full outline-none '
+                 placeholder='Search city'
+               />
+
+               <XIcon className='h-7 text-gray-500 cursor-pointer transition duration-100 transform
+                hover:scale-125 sm:mr-3 ' 
+
+                onClick = { disableSearch }
+                />
+
+             </>
+
+
+            )}
+
+             <SearchIcon 
+             className='h-6 text-blue-500 hidden sm:inline-flex '
+               onClick={search}
+             />
+
           </div>
 
           <div className =' text-center '>
@@ -73,10 +111,7 @@ let getDate = new Date();
           
       </div>
   
-        
-       
-
-    </main>
+  </main>
 
   
 

@@ -76,7 +76,7 @@ function Header() {
 
       </div>
 
-      <div className=' flex items-center space-x-4  md:space-x-6 justify-center text-gray-600 mb-3 border-b '>
+      {/* <div className=' flex items-center space-x-4  md:space-x-6 justify-center text-gray-600 mb-3 border-b '>
            <p 
            className = { `headeroption ${ "activeoption" && local }`} 
            onClick = { (e) => {
@@ -130,7 +130,7 @@ function Header() {
               setEntertainment(true);
 
            }}> Bitcion </p>
-      </div>
+      </div> */}
 
     </header>
     );
