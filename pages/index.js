@@ -1,11 +1,17 @@
 import Head from 'next/head';
 import Header from '../components/Header';
 import Feed from '../components/Feed';
+import moment from 'moment';
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import WeatherApp from '../components/WeatherApp';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCloudRain } from '@fortawesome/free-solid-svg-icons';
 
  export default  function Home() {
+
+      // Date information
+let getDate = new Date();
    
   return (
     <div className="h-screen bg-gray-100 overflow-hidden">
@@ -25,16 +31,47 @@ import WeatherApp from '../components/WeatherApp';
 
         {/* main section */}
 
-     <main className = " flex  overflow-y-auto scrollbar-hide ">
+     <main className = " flex  flex-col-reverse md:flex-row md:space-x-3 ">
 
-       {/* Sidebar */}
-         {/* <Sidebar/> */}
-
-         {/* Feed */}
+          {/* Feed */}
+          <div className=''>
             <Feed />
+          </div>
 
-         {/* Weather data */}
+          {/* Weather data */}
           {/* <WeatherApp /> */}
+
+       <div className='flex flex-col   bg-white rounded-md w-[400px] m-4 
+                   max-h-96 p-4 text-gray-600 '>
+         
+          <div className='border-b  m-2'>
+             <h2 className='text-gray-600 font-medium '> Weather </h2>
+          </div>
+
+          <div className =' text-center '>
+
+              <h3 > London  </h3>
+
+              <p className='text-gray-600'>
+                    { moment(getDate).format(" Do MMMM  YYYY, h:mm a") }
+              </p>
+
+          </div>
+
+          <div className=' flex flex-col items-center m-2 '>
+
+             <FontAwesomeIcon icon = { faCloudRain } className = "h-20 text-blue-500" />
+
+             <h1> 33.50 &deg; C</h1>
+
+             <p className=' font-semibold '>  clouds </p>
+
+             <h1>  33.00 &deg;C | 33.57 &deg;C</h1>
+
+             <p> Next day's  Forecast</p>
+          </div>
+          
+      </div>
   
         
        
