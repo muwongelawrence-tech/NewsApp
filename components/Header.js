@@ -9,7 +9,6 @@ import Avatar from './Avatar';
 
 
 
-
 function Header() {
 
     const router = useRouter();
@@ -18,63 +17,72 @@ function Header() {
     const [ global , setGlobal] = useState(false);
     const [ sports , setSports] = useState(false);
     const [ entertainment , setEntertainment] = useState(false);
+    const [showmenu ,setShowmenu] = useState(false);
 
-    const searchInputRef = useRef();
+    const collapse = (e) => {
+      e.preventDefault();
+      const show = showmenu === false ? true : false 
+      setShowmenu(show) ;
+    };
 
-    const search = e => {
-        e.preventDefault();
+   return (
+    <header className='sticky top-0 bg-white  '>
 
-        const term = searchInputRef.current.value;
-    
-        if(!term) return;
-    
-        router.push(`/search?term = ${ term }`);
-        
-    
-    }
+      <div className='flex  p-6 items-center justify-between flex-wrap  '>
+           
+           <div className=''>
+              <Image 
+                src = "/logo2.png"
+                height = { 40 }
+                width = { 100 }
+                onClick = { () => router.push("/") }
+                className = "cursor-pointer animate-bounce "
+            />
+           </div>
 
+                <ul className="hidden  md:inline-flex md:space-x-3  p-4">
+                  <li className="nav__item"><a href="#">Local News </a></li>
+                  <li className="nav__item"><a href="#"> Global News</a></li>
+                   <li className="nav__item"><a href="#"> Sports News</a></li>
+                   <li className="nav__item"><a href="#"> Entertainment</a></li>
+                   <li className="nav__item"><a href="#"> Bitcoin</a></li>
+                 </ul>
 
+                 <div className='text-gray-600 text-wrap'>
+                    <p className=''> hello ,</p>
+                    <p className=''> Muwonge Lawrence </p>
+                </div>
 
-    return (
-    <header className='sticky top-0 bg-white '>
+                <div className=''>
 
-      <div className='flex w-full p-6 items-center '>
-       
-        <Image 
-            src = "/logo2.png"
-            height = { 40 }
-            width = { 100 }
-            onClick = { () => router.push("/") }
-            className = "cursor-pointer animate-bounce "
-        />
+                  {/* Avatar */}
+                  <Avatar className = "ml-auto" url = "https://coaching.papareact.com/ai9" />
+                </div>
 
-        <form className= {`flex border border-gray-200 rounded-full 
-        shadow-lg max-w-3xl items-center px-6 py-3 ml-10 mr-5 flex-grow`}>
-            <input ref = { searchInputRef } type="text"
-                className='flex-grow w-full focus:outline-none '
-                />
+                
+                  {/* collapsible bar */}
+                <div 
+                className=' sm:hidden border rounded text-blue-600 hover:text-blue-300 active:text-blue-300 '
+                onClick ={ collapse }
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                </div>
 
-                <XIcon className='h-7 text-gray-500 cursor-pointer transition duration-100 transform
-                hover:scale-125 sm:mr-3 ' 
-
-                onClick = { () => ( searchInputRef.current.value = "") }
-                />
-
-               <SearchIcon className='h-6 text-blue-500 hidden sm:inline-flex ' />
-
-                <button hidden type='submit' onClick={ search }>Search </button>
-        </form>
-
-        <div className='text-gray-600 text-wrap'>
-          <p className=''> hello ,</p>
-          <p className=''> Muwonge Lawrence </p>
-        </div>
-
-        {/* Avatar */}
-        <Avatar className = "ml-auto" url = "https://coaching.papareact.com/ai9" />
-
+              { showmenu && (
+                  <ul className={` sm:hidden w-full p-3 text-gray-300 `}>
+                  <li className="nav__item2"><a href="#">Local News </a></li>
+                  <li className="nav__item2"><a href="#"> Global News</a></li>
+                  <li className="nav__item2"><a href="#"> Sports News </a></li>
+                  <li className="nav__item2"><a href="#"> Entertainment</a></li>
+                  <li className="nav__item2"><a href="#"> Bitcoin</a></li>
+                </ul>
+              )}
 
       </div>
+
+
 
       {/* <div className=' flex items-center space-x-4  md:space-x-6 justify-center text-gray-600 mb-3 border-b '>
            <p 
@@ -137,3 +145,6 @@ function Header() {
 }
 
 export default Header;
+
+
+
