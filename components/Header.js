@@ -119,6 +119,17 @@ function Header() {
               setEntertainment(true);
 
            }}>Entertainment</p>
+
+         <p className= { `headeroption ${ "activeoption" && entertainment }`} 
+           onClick = { (e) => {
+
+              e.preventDefault();
+              setLocal(false);
+              setGlobal(false);
+              setSports(false);
+              setEntertainment(true);
+
+           }}> Bitcion </p>
       </div>
 
     </header>

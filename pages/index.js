@@ -34,7 +34,7 @@ import WeatherApp from '../components/WeatherApp';
             <Feed />
 
          {/* Weather data */}
-          <WeatherApp />
+          {/* <WeatherApp /> */}
   
         
        

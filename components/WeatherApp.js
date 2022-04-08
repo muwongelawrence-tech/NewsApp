@@ -105,13 +105,7 @@ let getDate = new Date();
 
              <p> Next day's  Forecast</p>
           </div>
-         
-        
-       
-      
-
-       
-
-    </div>
+          
+      </div>
   );
 }
