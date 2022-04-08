@@ -81,7 +81,7 @@ import { XIcon } from '@heroicons/react/solid';
 
              <SearchIcon 
              className='h-6 text-blue-500 hidden sm:inline-flex '
-               onClick={search}
+               onClick={ search }
              />
 
           </div>

@@ -28,7 +28,7 @@ function Header() {
    return (
     <header className='sticky top-0 bg-white  '>
 
-      <div className='flex  p-6 items-center justify-between flex-wrap  '>
+      <div className='flex  p-3 items-center justify-between flex-wrap  '>
            
            <div className=''>
               <Image 
@@ -40,7 +40,7 @@ function Header() {
             />
            </div>
 
-                <ul className="hidden  md:inline-flex md:space-x-3  p-4">
+                <ul className="hidden  md:inline-flex md:space-x-3  ">
                   <li className="nav__item"><a href="#">Local News </a></li>
                   <li className="nav__item"><a href="#"> Global News</a></li>
                    <li className="nav__item"><a href="#"> Sports News</a></li>
