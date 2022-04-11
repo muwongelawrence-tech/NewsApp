@@ -11,14 +11,15 @@ import Avatar from './Avatar';
 
 function Header() {
 
-    const router = useRouter();
+    // const router = useRouter();
 
     const [ local , setLocal] = useState(false);
     const [ global , setGlobal] = useState(false);
     const [ sports , setSports] = useState(false);
     const [ entertainment , setEntertainment] = useState(false);
-    const [showmenu ,setShowmenu] = useState(false);
-
+    const [showmenu , setShowmenu] = useState(false);
+    
+    // collapsing the navbar on a mobile device
     const collapse = (e) => {
       e.preventDefault();
       const show = showmenu === false ? true : false 
@@ -41,11 +42,11 @@ function Header() {
            </div>
 
                 <ul className="hidden  md:inline-flex md:space-x-3  ">
-                  <li className="nav__item"><a href="#">Local News </a></li>
-                  <li className="nav__item"><a href="#"> Global News</a></li>
-                   <li className="nav__item"><a href="#"> Sports News</a></li>
-                   <li className="nav__item"><a href="#"> Entertainment</a></li>
-                   <li className="nav__item"><a href="#"> Bitcoin</a></li>
+                  <li className="nav__item">Local News </li>
+                  <li className="nav__item">Global News</li>
+                   <li className="nav__item"> Sports News </li>
+                   <li className="nav__item">Entertainment</li>
+                   <li className="nav__item">Bitcoin</li>
                  </ul>
 
                  <div className='text-gray-600 text-wrap'>
@@ -72,11 +73,11 @@ function Header() {
 
               { showmenu && (
                   <ul className={` sm:hidden w-full p-3 text-gray-300 `}>
-                  <li className="nav__item2"><a href="#">Local News </a></li>
-                  <li className="nav__item2"><a href="#"> Global News</a></li>
-                  <li className="nav__item2"><a href="#"> Sports News </a></li>
-                  <li className="nav__item2"><a href="#"> Entertainment</a></li>
-                  <li className="nav__item2"><a href="#"> Bitcoin</a></li>
+                  <li className="nav__item2">Local News </li>
+                  <li className="nav__item2"> Global News</li>
+                  <li className="nav__item2"> Sports News </li>
+                  <li className="nav__item2"> Entertainment</li>
+                  <li className="nav__item2"> Bitcoin </li>
                 </ul>
               )}
 

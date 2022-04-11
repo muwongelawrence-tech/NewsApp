@@ -7,8 +7,7 @@ import Posts from './Posts';
 
 function Feed() {
 
-    // Date information
-let getDate = new Date();
+
 
     return (
         
