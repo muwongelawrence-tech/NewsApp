@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCloudRain } from '@fortawesome/free-solid-svg-icons';
+import { faCloud,faCloudRain , faThunderstorm, faCloudSun,faCloudSunRain, faSun } from '@fortawesome/free-solid-svg-icons';
 import { getWeatherForecast, getWeatherInformation } from '../services/weatherService';
 import moment from "moment";
 import { XIcon } from '@heroicons/react/solid';
@@ -17,6 +17,7 @@ export default function WeatherApp() {
   const [ min_temp , setMinTemp] = useState(0);
   const [ max_temp  , setMaxTemp ] = useState(0);
   const [ city , setCity ] = useState("kampala");
+  const [ weatherIcon , setWeatherIcon ] = useState(faSun);
   const [ searchCity , setSearchCity] = useState(false);
 
   let componentMounted = true;
@@ -24,9 +25,7 @@ export default function WeatherApp() {
 // get weather data 
 const getWeatherData = async () => {
 
-   
-
-    const  { data } = await getWeatherInformation(city);
+   const  { data } = await getWeatherInformation(city);
 
     if(componentMounted){
 
@@ -41,7 +40,25 @@ const getWeatherData = async () => {
     // console.log(weatherData);
     //  console.log(description);
 
-     return () => {
+   // setting weather icons 
+    if( typeof data.weather[0].main != "undefined"){
+      if(data.weather[0].main === "Clouds"){
+           setWeatherIcon(faCloud);
+      }
+      else if(data.weather[0].main === "Thunderstorm"){
+             setWeatherIcon(faThunderstorm);
+      }
+      else if(data.weather[0].main === "Rain"){
+        setWeatherIcon(faCloudRain);
+        Clear
+      }
+      else if(data.weather[0].main === "Clear"){
+        setWeatherIcon(faCloudSun);
+      }
+    }
+
+
+    return () => {
       componentMounted = false;
     }
 
@@ -95,6 +112,25 @@ const getNewCityData = async() => {
   }
    //console.log(weatherData);
   //  console.log(description);
+
+  // setting weather icons 
+  if( typeof data.weather[0].main != "undefined"){
+    if(data.weather[0].main === "Clouds"){
+         setWeatherIcon(faCloud);
+    }
+    else if(data.weather[0].main === "Thunderstorm"){
+           setWeatherIcon(faThunderstorm);
+    }
+    else if(data.weather[0].main === "Rain"){
+      setWeatherIcon(faCloudRain);
+      Clear
+    }
+    else if(data.weather[0].main === "Clear"){
+      setWeatherIcon(faCloudSun);
+    }
+  }
+
+
    return () => {
     componentMounted = false;
   }
@@ -110,7 +146,7 @@ const search =  () => {
 }
 
 const disableSearch = () => {
-  
+
   setCity("kampala");
   setSearchCity(false);
   
@@ -172,7 +208,7 @@ const disableSearch = () => {
 
           <div className=' flex flex-col items-center m-2 '>
 
-             <FontAwesomeIcon icon = { faCloudRain } className = "h-20 text-blue-500" />
+             <FontAwesomeIcon icon = { weatherIcon } className = "h-20 text-blue-500" />
 
              <h1> { temp } &deg; C</h1>
 
