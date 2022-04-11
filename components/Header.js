@@ -2,10 +2,13 @@
 import  Image  from 'next/image';
 import React, { useState } from 'react';
 import Avatar from './Avatar';
+import { signIn , signOut , useSession } from "next-auth/client";
 
 
 
 function Header( { onChange }) {
+
+  const[ session ] = useSession();
 
 
     const [ local , setLocal] = useState(true);
@@ -100,15 +103,17 @@ function Header( { onChange }) {
                    >Bitcoin</li>
                  </ul>
 
-                 <div className='text-gray-300 text-wrap hover:text-gray-100'>
+                 <div  onClick = { signIn } className='text-gray-300 text-wrap hover:text-gray-100'>
                     <p className=''> hello ,</p>
-                    <p className=''> Muwonge Lawrence </p>
+                    <p className=''> 
+                     { session ? `${ session.user.name }`: "Sign In" }
+                    </p>
                 </div>
 
                 <div className=''>
 
                   {/* Avatar */}
-                  <Avatar className = "ml-auto" url = "" />
+                  <Avatar className = "ml-auto" url = { session ? session.user.image :""} />
                 </div>
 
                 

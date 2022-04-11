@@ -10,12 +10,9 @@ export  function getNews(category){
         headers: {
           'x-api-key':  process.env.api_key 
         }
-      });
+  });
 
-
-  
-
-// }
+}
 
 
 // export  function getNews(category){
@@ -34,4 +31,3 @@ export  function getNews(category){
 
   
 
-}
