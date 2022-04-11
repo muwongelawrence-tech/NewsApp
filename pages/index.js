@@ -11,11 +11,13 @@ import { useEffect, useState } from 'react';
  export default  function Home() {
 
   const [ newPosts ,setNewPosts] = useState([]);
+  const [ newsCategory ,setNewsCategory] = useState("uganda");
   let componentMounted = true;
+
 
   const getData = async () => {
 
-    const { data : localNews } = await getNews();
+    const { data : localNews } = await getNews(newsCategory);
 
     // newPosts = localNews.articles;
     // console.log(localNews.articles);
@@ -29,12 +31,20 @@ import { useEffect, useState } from 'react';
         componentMounted = false;
       }
 
-    }
+  }
 
-   // fetch data after rendering components in the DOM.
-   useEffect(() => {
+ 
+// getting new search from the server with a different category
+   const newSearch = ( search ) => {
+      // console.log(typeof search );
+     setNewsCategory(search);
+
+   }
+
+  // fetch data after rendering components in the DOM.
+    useEffect(() => {
       getData();
-   },[newPosts])
+   },[newPosts ,newsCategory]);
 
 
   return (
@@ -51,7 +61,7 @@ import { useEffect, useState } from 'react';
       <ToastContainer />
      
      {/* Header */}
-         <Header/>
+         <Header onChange = { newSearch  } />
 
     {/* main section */}
 

@@ -5,7 +5,7 @@ import Avatar from './Avatar';
 
 
 
-function Header() {
+function Header( { onChange }) {
 
 
     const [ local , setLocal] = useState(true);
@@ -42,6 +42,7 @@ function Header() {
                   <li className= {`nav__item ${ local && 'text-blue-600 border-blue-600 border-b-2'}`}
                      onClick={ (e) => {
                         e.preventDefault();
+                        onChange ("uganda");
                         setLocal(true);
                         setGlobal(false);
                         setSports(false);
@@ -53,6 +54,7 @@ function Header() {
                   <li className= {`nav__item ${ global && 'text-blue-600 border-blue-600 border-b-2'}`}
                         onClick={ (e) => {
                           e.preventDefault();
+                          onChange("Tesla");
                           setLocal(false);
                           setGlobal(true);
                           setSports(false);
@@ -64,6 +66,7 @@ function Header() {
                    <li className= {`nav__item ${ sports && 'text-blue-600 border-blue-600 border-b-2'}`}
                          onClick={ (e) => {
                           e.preventDefault();
+                          onChange ("sports");
                           setLocal(false);
                           setGlobal(false);
                           setSports(true);
@@ -75,6 +78,7 @@ function Header() {
                    <li className= {`nav__item ${ entertainment && 'text-blue-600 border-blue-600 border-b-2'}`}
                           onClick={ (e) => {
                             e.preventDefault();
+                            onChange ("Entertainment");
                             setLocal(false);
                             setGlobal(false);
                             setSports(false);
@@ -86,6 +90,7 @@ function Header() {
                    <li className= {`nav__item ${ bitcoin && 'text-blue-600 border-blue-600 border-b-2'}`}
                         onClick={ (e) => {
                           e.preventDefault();
+                          onChange ("bitcoin");
                           setLocal(false);
                           setGlobal(false);
                           setSports(false);

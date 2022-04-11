@@ -154,7 +154,7 @@ const disableSearch = () => {
 
   return (
     <div className='flex-col bg-white rounded-md w-[400px] m-4 
-    max-h-96 p-4 text-gray-600 hidden md:inline-flex '>
+    max-h-96 p-4 text-gray-600 hidden md:inline-flex hover:scale-105'>
          
           <div className=' flex space-x-3  justify-between border-b  m-2'>
 
