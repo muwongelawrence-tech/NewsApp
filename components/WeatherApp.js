@@ -72,7 +72,7 @@ const getWeatherForecastData = async () => {
   
    if(componentMounted){
      setWeatherForecast(forecast);
-     console.log(weatherForecast);
+     
    }
 
    return () => {
@@ -89,6 +89,7 @@ const getWeatherForecastData = async () => {
       getWeatherData();
       // console.log(componentMounted);
       // getWeatherForecastData();
+      // console.log(weatherForecast);
           
     },[city]);
 
