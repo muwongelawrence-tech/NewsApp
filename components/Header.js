@@ -11,12 +11,12 @@ import Avatar from './Avatar';
 
 function Header() {
 
-    // const router = useRouter();
 
-    const [ local , setLocal] = useState(false);
+    const [ local , setLocal] = useState(true);
     const [ global , setGlobal] = useState(false);
     const [ sports , setSports] = useState(false);
     const [ entertainment , setEntertainment] = useState(false);
+    const [ bitcoin ,setBitCoin] = useState(false);
     const [showmenu , setShowmenu] = useState(false);
     
     // collapsing the navbar on a mobile device
@@ -42,11 +42,61 @@ function Header() {
            </div>
 
                 <ul className="hidden  md:inline-flex md:space-x-3  ">
-                  <li className="nav__item">Local News </li>
-                  <li className="nav__item">Global News</li>
-                   <li className="nav__item"> Sports News </li>
-                   <li className="nav__item">Entertainment</li>
-                   <li className="nav__item">Bitcoin</li>
+
+                  <li className= {`nav__item ${ local && 'text-blue-600 border-blue-600 border-b-2'}`}
+                     onClick={ (e) => {
+                        e.preventDefault();
+                        setLocal(true);
+                        setGlobal(false);
+                        setSports(false);
+                        setEntertainment(false);
+                        setBitCoin(false);
+                     } }
+                  >Local News </li>
+
+                  <li className= {`nav__item ${ global && 'text-blue-600 border-blue-600 border-b-2'}`}
+                        onClick={ (e) => {
+                          e.preventDefault();
+                          setLocal(false);
+                          setGlobal(true);
+                          setSports(false);
+                          setEntertainment(false);
+                          setBitCoin(false);
+                       } }
+                  >Global News</li>
+
+                   <li className= {`nav__item ${ sports && 'text-blue-600 border-blue-600 border-b-2'}`}
+                         onClick={ (e) => {
+                          e.preventDefault();
+                          setLocal(false);
+                          setGlobal(false);
+                          setSports(true);
+                          setEntertainment(false);
+                          setBitCoin(false);
+                       } }
+                   > Sports News </li>
+
+                   <li className= {`nav__item ${ entertainment && 'text-blue-600 border-blue-600 border-b-2'}`}
+                          onClick={ (e) => {
+                            e.preventDefault();
+                            setLocal(false);
+                            setGlobal(false);
+                            setSports(false);
+                            setEntertainment(true);
+                            setBitCoin(false);
+                         } }
+                   >Entertainment</li>
+
+                   <li className= {`nav__item ${ bitcoin && 'text-blue-600 border-blue-600 border-b-2'}`}
+                        onClick={ (e) => {
+                          e.preventDefault();
+                          setLocal(false);
+                          setGlobal(false);
+                          setSports(false);
+                          setEntertainment(false);
+                          setBitCoin(true);
+                       } }
+                   >Bitcoin</li>
                  </ul>
 
                  <div className='text-gray-600 text-wrap'>
@@ -57,7 +107,7 @@ function Header() {
                 <div className=''>
 
                   {/* Avatar */}
-                  <Avatar className = "ml-auto" url = "https://coaching.papareact.com/ai9" />
+                  <Avatar className = "ml-auto" url = "" />
                 </div>
 
                 
@@ -84,62 +134,6 @@ function Header() {
       </div>
 
 
-
-      {/* <div className=' flex items-center space-x-4  md:space-x-6 justify-center text-gray-600 mb-3 border-b '>
-           <p 
-           className = { `headeroption ${ "activeoption" && local }`} 
-           onClick = { (e) => {
-
-             e.preventDefault();
-             setLocal(true);
-             setGlobal(false);
-             setSports(false);
-             setEntertainment(false);
-             
-          }}>Local News</p>
-
-           <p className= { `headeroption ${ 'text-blue-500 border-blue-500 border-b-2' && global }`}  
-            onClick = { (e) => {
-             e.preventDefault();  
-             setLocal(false);
-             setGlobal(true);
-             setSports(false);
-             setEntertainment(false);
-              
-           }}>Global News </p>
-
-           <p className= { `headeroption ${ "activeoption" && sports }`} 
-           onClick = { (e) => {
-            e.preventDefault();  
-             setLocal(false);
-             setGlobal(false);
-             setSports(true);
-             setEntertainment(false);
-
-           }}>Sports News </p>
-
-           <p className= { `headeroption ${ "activeoption" && entertainment }`} 
-           onClick = { (e) => {
-
-              e.preventDefault();
-              setLocal(false);
-              setGlobal(false);
-              setSports(false);
-              setEntertainment(true);
-
-           }}>Entertainment</p>
-
-         <p className= { `headeroption ${ "activeoption" && entertainment }`} 
-           onClick = { (e) => {
-
-              e.preventDefault();
-              setLocal(false);
-              setGlobal(false);
-              setSports(false);
-              setEntertainment(true);
-
-           }}> Bitcion </p>
-      </div> */}
 
     </header>
     );

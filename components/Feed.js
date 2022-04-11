@@ -19,13 +19,7 @@ function Feed() {
 
                  <Posts />
             </div>
-             
-            {/* weather information */}
-
-        
-
-
-        </div>
+          </div>
     );
 }
 

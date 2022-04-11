@@ -8,15 +8,16 @@ import WeatherApp from '../components/WeatherApp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudRain } from '@fortawesome/free-solid-svg-icons';
 import { SearchIcon } from '@heroicons/react/outline';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { XIcon } from '@heroicons/react/solid';
+import { getWeatherInformation } from '../services/weatherService';
 
  export default  function Home() {
 
   const [ searchCity , setSearchCity] = useState(false);
 
-    // Date information
-    let getDate = new Date();
+ // Date information
+     let getDate = new Date();
 
     const search =  () => {
       setSearchCity(true);
@@ -54,7 +55,11 @@ import { XIcon } from '@heroicons/react/solid';
           {/* Weather data */}
           {/* <WeatherApp /> */}
 
-       <div className='flex-col bg-white rounded-md w-[400px] m-4 
+          <div className=''>
+                 <WeatherApp />
+          </div>
+
+       {/* <div className='flex-col bg-white rounded-md w-[400px] m-4 
                    max-h-96 p-4 text-gray-600 hidden md:inline-flex '>
          
           <div className=' flex space-x-3  justify-between border-b  m-2'>
@@ -85,8 +90,9 @@ import { XIcon } from '@heroicons/react/solid';
              />
 
           </div>
-
-          <div className =' text-center '>
+            
+            {/*  Weather information */}
+          {/* <div className =' text-center '>
 
               <h3 > London  </h3>
 
@@ -109,7 +115,7 @@ import { XIcon } from '@heroicons/react/solid';
              <p> Next day's  Forecast</p>
           </div>
           
-      </div>
+      </div> */} 
   
   </main>
 
