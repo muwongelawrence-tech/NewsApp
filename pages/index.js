@@ -1,32 +1,42 @@
 import Head from 'next/head';
 import Header from '../components/Header';
 import Feed from '../components/Feed';
-import moment from 'moment';
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import WeatherApp from '../components/WeatherApp';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCloudRain } from '@fortawesome/free-solid-svg-icons';
-import { SearchIcon } from '@heroicons/react/outline';
+import { getNews } from '../services/NewsService';
 import { useEffect, useState } from 'react';
-import { XIcon } from '@heroicons/react/solid';
-import { getWeatherInformation } from '../services/weatherService';
+
 
  export default  function Home() {
 
-  const [ searchCity , setSearchCity] = useState(false);
+  const [ newPosts ,setNewPosts] = useState([]);
+  let componentMounted = true;
 
- // Date information
-     let getDate = new Date();
+  const getData = async () => {
 
-    const search =  () => {
-      setSearchCity(true);
+    const { data : localNews } = await getNews();
+
+    // newPosts = localNews.articles;
+    // console.log(localNews.articles);
+
+      if(componentMounted){
+        setNewPosts( localNews.articles);
+      }
+
+
+      return () => {
+        componentMounted = false;
+      }
+
     }
 
-    const disableSearch = () => {
-      setSearchCity(false);
-    }
-   
+   // fetch data after rendering components in the DOM.
+   useEffect(() => {
+      getData();
+   },[newPosts])
+
+
   return (
     <div className="h-screen bg-gray-100 overflow-hidden">
       <Head>
@@ -35,6 +45,7 @@ import { getWeatherInformation } from '../services/weatherService';
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      
       {/* Rendering  async errors using toastify */}
 
       <ToastContainer />
@@ -42,82 +53,22 @@ import { getWeatherInformation } from '../services/weatherService';
      {/* Header */}
          <Header/>
 
-        {/* main section */}
+    {/* main section */}
 
      <main className = {`flex  px-5 md:px-20 flex-col-reverse md:flex-row md:space-x-3 md:justify-between 
            `}>
 
           {/* Feed */}
           <div className=''>
-            <Feed />
+            <Feed  newPosts = { newPosts }/>
           </div>
 
           {/* Weather data */}
-          {/* <WeatherApp /> */}
-
           <div className=''>
                  <WeatherApp />
           </div>
 
-       {/* <div className='flex-col bg-white rounded-md w-[400px] m-4 
-                   max-h-96 p-4 text-gray-600 hidden md:inline-flex '>
-         
-          <div className=' flex space-x-3  justify-between border-b  m-2'>
-             <h2 className='text-gray-600 font-medium '> Weather </h2>
-
-            
-            { searchCity && (
-              <>
-                 <input  type="text"
-                 className='flex-grow w-full outline-none '
-                 placeholder='Search city'
-               />
-
-               <XIcon className='h-7 text-gray-500 cursor-pointer transition duration-100 transform
-                hover:scale-125 sm:mr-3 ' 
-
-                onClick = { disableSearch }
-                />
-
-             </>
-
-
-            )}
-
-             <SearchIcon 
-             className='h-6 text-blue-500 hidden sm:inline-flex '
-               onClick={ search }
-             />
-
-          </div>
-            
-            {/*  Weather information */}
-          {/* <div className =' text-center '>
-
-              <h3 > London  </h3>
-
-              <p className='text-gray-600'>
-                    { moment(getDate).format(" Do MMMM  YYYY, h:mm a") }
-              </p>
-
-          </div>
-
-          <div className=' flex flex-col items-center m-2 '>
-
-             <FontAwesomeIcon icon = { faCloudRain } className = "h-20 text-blue-500" />
-
-             <h1> 33.50 &deg; C</h1>
-
-             <p className=' font-semibold '>  clouds </p>
-
-             <h1>  33.00 &deg;C | 33.57 &deg;C</h1>
-
-             <p> Next day's  Forecast</p>
-          </div>
-          
-      </div> */} 
-  
-  </main>
+      </main>
 
   
 

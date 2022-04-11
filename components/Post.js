@@ -1,4 +1,3 @@
-import { ChatAltIcon, ShareIcon, ThumbUpIcon } from '@heroicons/react/outline';
 import Image from 'next/image';
 import moment from "moment";
 import React from 'react';

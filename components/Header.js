@@ -1,10 +1,6 @@
 
 import  Image  from 'next/image';
-import { SearchIcon } from '@heroicons/react/outline';
-import { XIcon } from '@heroicons/react/solid';
-import { useRouter } from 'next/router';
 import React, { useState } from 'react';
-import { useRef } from 'react';
 import Avatar from './Avatar';
 
 

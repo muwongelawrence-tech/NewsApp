@@ -50,7 +50,7 @@ const getWeatherData = async () => {
       }
       else if(data.weather[0].main === "Rain"){
         setWeatherIcon(faCloudRain);
-        Clear
+    
       }
       else if(data.weather[0].main === "Clear"){
         setWeatherIcon(faCloudSun);

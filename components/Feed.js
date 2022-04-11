@@ -1,11 +1,9 @@
-import moment from 'moment';
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCloudRain } from '@fortawesome/free-solid-svg-icons';
+
 
 import Posts from './Posts';
 
-function Feed() {
+function Feed( { newPosts }) {
 
 
 
@@ -17,7 +15,7 @@ function Feed() {
                      <h2 className='text-gray-600  font-bold text-xl cursor-pointer'>News Head Lines</h2>
                 </marquee>
 
-                 <Posts />
+                 <Posts newPosts = { newPosts } />
             </div>
           </div>
     );

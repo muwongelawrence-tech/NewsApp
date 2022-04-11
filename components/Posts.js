@@ -1,41 +1,14 @@
 import React, { useEffect, useState } from 'react';
 
-import { db } from '../firebase';
-
-import { getNews } from '../services/NewsService';
-
 import Post from './Post';
 
 
-function Posts( ) {
+ function Posts( { newPosts }) {
 
-  const [ newPosts ,setNewPosts] = useState([]);
-
-  const getData = async () => {
-
-    const { data : localNews } = await getNews();
-
-    // newPosts = localNews.articles;
-
-    setNewPosts( localNews.articles);
-
-    // console.log(localNews.articles);
-
-   }
-
-   // fetch data after rendering components in the DOM.
-   useEffect(() => {
-
-      getData();
-
-   });
-
-  
-
-    return (
+   return (
 
         <div className = "">
-            
+        
             { newPosts.map(({ id , title , summary, media , link , published_date , country }) => (
                 <Post 
 
