@@ -2,22 +2,25 @@ import Image from 'next/image';
 import moment from "moment";
 import React from 'react';
 
-function Post({ title , summary, media , link , published_date , country }) {
+function Post( {  title , summary, media , link , published_date , country }) {
     return (
         <div className = "flex flex-col pb-2 bg-white  mt-5 rounded-md shadow-sm  text-gray-500 overflow-hidden">
             
            <div className='' >
-
-               <img src= { media } 
+               
+               <img src= { media  } 
                   className = " w-full h-full object-cover"
-                  alt="" 
-               />
+                  alt="news Image " 
+                  
+               /> 
+
+              
             
            </div>
 
            <div className='p-3'>
 
-               <p className='text-lg font-semibold text-gray-700 m-2'> {title} </p>
+               <p className='text-lg font-semibold text-gray-700 m-2'> {  title  } </p>
 
                <p className='text-justify'>{ summary } </p>
 

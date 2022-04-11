@@ -19,11 +19,14 @@ import { useEffect, useState } from 'react';
 
     const { data : localNews } = await getNews(newsCategory);
 
+    // console.log(localNews.value);
+
     // newPosts = localNews.articles;
     // console.log(localNews.articles);
 
       if(componentMounted){
         setNewPosts( localNews.articles);
+        // setNewPosts(localNews.value);
       }
 
 
@@ -41,10 +44,13 @@ import { useEffect, useState } from 'react';
 
    }
 
+   getData();
+
   // fetch data after rendering components in the DOM.
-    useEffect(() => {
-      getData();
-   },[newPosts ,newsCategory]);
+  //   useEffect(() => {
+  //     getData();
+  //     console.log(newPosts);
+  //  },[newPosts ,newsCategory]);
 
 
   return (

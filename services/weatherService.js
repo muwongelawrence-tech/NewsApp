@@ -1,12 +1,5 @@
 import http from "./httpService";
 
-
-
-const apiEndpoint2 =
-`https://pro.openweathermap.org/data/2.5/forecast/hourly?q=Kampala&appid=${ process.env.weather_key }`;
-
-
-
 export function getWeatherInformation(city){
 
     const apiEndpoint = 
@@ -18,6 +11,9 @@ export function getWeatherInformation(city){
 //getting weather forecast
 
 export function getWeatherForecast(){
+      
+const apiEndpoint2 =
+`https://pro.openweathermap.org/data/2.5/forecast/hourly?q=Kampala&appid=${ process.env.weather_key }`;
 
     return http.get(apiEndpoint2);
 }
