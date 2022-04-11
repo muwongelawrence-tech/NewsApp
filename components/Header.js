@@ -23,7 +23,7 @@ function Header( { onChange }) {
     };
 
    return (
-    <header className='sticky top-0 bg-white  '>
+    <header className='sticky top-0 bg-gray-800  '>
 
       <div className='flex  p-3 items-center justify-between flex-wrap  '>
            
@@ -100,7 +100,7 @@ function Header( { onChange }) {
                    >Bitcoin</li>
                  </ul>
 
-                 <div className='text-gray-600 text-wrap'>
+                 <div className='text-gray-300 text-wrap hover:text-gray-100'>
                     <p className=''> hello ,</p>
                     <p className=''> Muwonge Lawrence </p>
                 </div>
@@ -114,7 +114,7 @@ function Header( { onChange }) {
                 
                   {/* collapsible bar */}
                 <div 
-                className=' sm:hidden border rounded text-blue-600 hover:text-blue-300 active:text-blue-300 '
+                className=' sm:hidden border-2 border-blue-400 rounded text-blue-500 hover:text-blue-300 active:text-blue-300 '
                 onClick ={ collapse }
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -123,12 +123,42 @@ function Header( { onChange }) {
                 </div>
 
               { showmenu && (
-                  <ul className={` sm:hidden w-full p-3 text-gray-300 `}>
-                  <li className="nav__item2">Local News </li>
-                  <li className="nav__item2"> Global News</li>
-                  <li className="nav__item2"> Sports News </li>
-                  <li className="nav__item2"> Entertainment</li>
-                  <li className="nav__item2"> Bitcoin </li>
+                  <ul className={` sm:hidden w-full p-3  `}>
+
+                  <li className="nav__item2"
+                   onClick = { (e) => {
+                    e.preventDefault();
+                     onChange ("uganda");
+                   }}
+                  >Local News </li>
+
+                  <li className="nav__item2"
+                          onClick = { (e) => {
+                          e.preventDefault();
+                             onChange ("Tesla");
+                           }}
+                  > Global News</li>
+
+                  <li className="nav__item2"
+                     onClick = { (e) => {
+                      e.preventDefault();
+                       onChange ("sports");
+                     }}
+                  > Sports News </li>
+
+                  <li className="nav__item2"
+                     onClick = { (e) => {
+                      e.preventDefault();
+                       onChange ("Entertainment");
+                     }}
+                  > Entertainment</li>
+
+                  <li className="nav__item2"
+                        onClick = { (e) => {
+                          e.preventDefault();
+                           onChange ("bitcoin");
+                         }}
+                  > Bitcoin </li>
                 </ul>
               )}
 
