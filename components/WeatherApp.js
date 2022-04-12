@@ -85,7 +85,8 @@ const getWeatherForecastData = async () => {
 const getNewCityData = async() => {
 
   //  console.log(searchCityRef.current.value);
-  const  { data } = await getWeatherInformation(searchCityRef.current.value);
+   setCity(searchCityRef.current.value);
+  const  { data } = await getWeatherInformation(city);
 
   if(componentMounted){
 
@@ -131,7 +132,7 @@ useEffect(() => {
   // getWeatherForecastData();
   // console.log(weatherForecast);
       
-},[ searchCity ]);
+},[city ]);
  
 
 // Date information
