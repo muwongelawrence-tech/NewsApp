@@ -6,19 +6,25 @@ function Post( {  title , summary, media , link , published_date , country }) {
     return (
         <div className = "flex flex-col pb-2 bg-white  mt-5 rounded-md shadow-sm  text-gray-500 overflow-hidden">
             
-           <div className='' >
+           <div className='w-full h-[500px]' >
                
-               <img src= { media  } 
+               {/* <img src= { media  } 
                   className = " w-full h-full object-cover"
                   alt="news Image " 
                   
-               /> 
+               />  */}
 
-              
-            
-           </div>
+                    <Image 
+                        src = { media }
+                        layout='fill'
+                        objectFit='cover'
+                        alt = "news image "
+                    />
 
-           <div className='p-3'>
+            </div>
+
+             
+       <div className='p-3'>
 
                <p className='text-lg font-semibold text-gray-700 m-2'> {  title  } </p>
 
