@@ -224,7 +224,7 @@ const disableSearch = () => {
 
              <p className=' font-semibold '> { description } </p>
 
-             <h1>  { min_temp }  &deg;C | { max_temp } &deg;C</h1>
+             <h1>  { min_temp }  &deg;C | { max_temp } &deg;C </h1>
 
              <p> Next day's  Forecast</p>
 
