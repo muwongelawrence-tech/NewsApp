@@ -154,21 +154,21 @@ const disableSearch = () => {
 }
 
   return (
-    <div className='flex-col bg-white rounded-md w-[400px] m-4 
-    max-h-96 p-4 text-gray-600 hidden md:inline-flex hover:scale-105'>
+    <div className='flex-col bg-gray-700 text-white rounded-md w-[400px] m-4 
+    max-h-96 p-4  hidden md:inline-flex hover:scale-105 shadow-2xl'>
          
           <div className=' flex space-x-3  justify-between border-b  m-2'>
 
-             <h2 className='text-gray-600 font-medium '> Weather </h2>
+             <h2 className=' font-medium '> Weather </h2>
 
              { searchCity && (
               <>
                  <input  ref = { searchCityRef } type="text"
-                 className='flex-grow w-full outline-none text-gray-400 '
+                 className='flex-grow w-full outline-none text-gray-600 rounded-md p-2  mb-1'
                  placeholder='Search city'
                />
 
-               <XIcon className='h-7 text-gray-500 cursor-pointer transition duration-100 transform
+               <XIcon className='h-7 text-gray-300 cursor-pointer transition duration-100 transform
                 hover:scale-125 sm:mr-3 ' 
 
                 onClick = { disableSearch }
@@ -178,7 +178,7 @@ const disableSearch = () => {
              )}
 
                  <SearchIcon 
-                   className='h-6 text-blue-500  sm:inline-flex '
+                   className='h-6 text-gray-300  sm:inline-flex '
                    onClick= { (e) => {
                      e.preventDefault();
 
@@ -197,11 +197,11 @@ const disableSearch = () => {
 
           {/*  Weather information */}
 
-          <div className =' text-center '>
+          <div className =' text-center m-3  '>
 
               <h3 > { weatherData.name }  </h3>
 
-              <p className='text-gray-600'>
+              <p className='text-gray-200'>
                     { moment(getDate).format(" Do MMMM  YYYY, h:mm a") }
               </p>
 
@@ -209,7 +209,7 @@ const disableSearch = () => {
 
           <div className=' flex flex-col items-center m-2 '>
 
-             <FontAwesomeIcon icon = { weatherIcon } className = "h-20 text-blue-500" />
+             <FontAwesomeIcon icon = { weatherIcon } className = "h-20 text-gray-300" />
 
              <h1> { temp } &deg; C</h1>
 
