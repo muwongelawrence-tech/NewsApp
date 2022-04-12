@@ -82,18 +82,7 @@ const getWeatherForecastData = async () => {
   
 }
 
-
-// fetch data after rendering components in the DOM.
-    // useEffect(() => {
-      
-    //   getWeatherData();
-    //   // console.log(componentMounted);
-    //   // getWeatherForecastData();
-    //   // console.log(weatherForecast);
-          
-    // },[city]);
-
-  const getNewCityData = async() => {
+const getNewCityData = async() => {
 
   //  console.log(searchCityRef.current.value);
   const  { data } = await getWeatherInformation(searchCityRef.current.value);
@@ -134,18 +123,15 @@ const getWeatherForecastData = async () => {
 
 }
 
-const loadApp = () => {
-
-  if( city === "kampala"){
-    getWeatherData();
-  }
-  else{
-    getNewCityData();
-  }
-
-}
-
-loadApp();
+// fetch data after rendering components in the DOM.
+useEffect(() => {
+      
+  getWeatherData();
+  // console.log(componentMounted);
+  // getWeatherForecastData();
+  // console.log(weatherForecast);
+      
+},[ searchCity ]);
  
 
 // Date information
@@ -156,10 +142,8 @@ const search =  () => {
 }
 
 const disableSearch = () => {
-
   setCity("kampala");
   setSearchCity(false);
-  
 }
 
   return (
