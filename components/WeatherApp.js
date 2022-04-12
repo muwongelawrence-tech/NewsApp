@@ -38,7 +38,7 @@ const getWeatherData = async () => {
     }
 
     // console.log(weatherData);
-    //  console.log(description);
+    // console.log(description);
 
    // setting weather icons 
     if( typeof data.weather[0].main != "undefined"){
@@ -128,11 +128,11 @@ const getNewCityData = async() => {
 useEffect(() => {
       
   getWeatherData();
-  // console.log(componentMounted);
+  console.log(weatherData);
   // getWeatherForecastData();
   // console.log(weatherForecast);
       
-},[city ]);
+},[city]);
  
 
 // Date information
@@ -172,7 +172,7 @@ const disableSearch = () => {
              )}
 
                  <SearchIcon 
-                   className='h-6 text-gray-300  sm:inline-flex '
+                   className='h-6 text-gray-300  sm:inline-flex cursor-pointer '
                    onClick= { (e) => {
                      e.preventDefault();
 

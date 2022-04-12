@@ -19,7 +19,7 @@
 
     .nav__item{
         @apply hover:text-blue-600 text-gray-300 hover:border-b-2 
-            hover:border-blue-600
+            hover:border-blue-600 cursor-pointer
     }
 
     .nav__item2 {

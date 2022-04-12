@@ -38,7 +38,7 @@ function Header( { onChange }) {
                 width = { 100 }
                 onClick = { () => router.push("/") }
                 className = "cursor-pointer animate-bounce "
-                alt ="news logo"
+                alt =" "
             />
            </div>
 
@@ -105,7 +105,7 @@ function Header( { onChange }) {
                    >Bitcoin</li>
                  </ul>
 
-                 <div  onClick = { signIn } className='text-gray-300 text-wrap hover:text-gray-100'>
+                 <div  onClick = { signIn } className='text-gray-300 text-wrap hover:text-gray-100 cursor-pointer'>
                     <p className=''> hello ,</p>
                     <p className=''> 
                      { session ? `${ session.user.name }`: "Sign In" }
