@@ -2,8 +2,6 @@
 import  axios from "axios";
 import { toast } from "react-toastify";
 
-
-
 axios.interceptors.response.use(null, error => {
     const ExpectedError = error.response && error.response.status >= 400 && error.response.status <=500;
 

@@ -3,14 +3,11 @@ import  Image  from 'next/image';
 import React, { useState } from 'react';
 import { MenuIcon } from "@heroicons/react/outline";
 import Avatar from './Avatar';
-import { signIn , signOut , useSession } from "next-auth/client";
+
 
 
 
 function Header( { onChange , onPlatform }) {
-
-  const[ session ] = useSession();
-
 
     const [ local , setLocal] = useState(true);
     const [ global , setGlobal] = useState(false);
@@ -109,17 +106,17 @@ function Header( { onChange , onPlatform }) {
                    >Bitcoin</li>
                  </ul>
 
-                 <div  onClick = { !session ? signIn : signOut } className='text-gray-300 text-wrap hover:text-gray-100 cursor-pointer'>
-                    <p className=' font-serif text-lg'> hello ,</p>
-                    <p className=' font-mono '> 
-                     { session ? `${ session.user.name }`: "Sign In" }
+                 <div  className='text-gray-300 text-wrap hover:text-gray-100 cursor-pointer'>
+                    <p className=' font-serif text-lg'> welcome  ,</p>
+                    <p className=' font-serif '> 
+                      to G-News
                     </p>
                 </div>
 
                 <div className=''>
 
                   {/* Avatar */}
-                  <Avatar className = "ml-auto" url = { session ? session.user.image :"/avt.png"} />
+                  <Avatar className = "ml-auto" url = "/avt.png" />
                 </div>
 
                 

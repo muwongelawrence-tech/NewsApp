@@ -78,15 +78,15 @@ import { useEffect, useState } from 'react';
            setMobilePlatform(platform);
    }
 
-   getData();
+   //getData();
 
   
   
    // fetch data after rendering components in the DOM.
-  //   useEffect(() => {
-  //     getData();
-  //     console.log(newPosts);
-  //  },[newPosts ,newsCategory]);
+    useEffect(() => {
+      getData();
+      // console.log(newPosts);
+   },[newsCategory]);
 
 
   return (
