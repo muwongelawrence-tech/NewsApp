@@ -34,10 +34,6 @@ import { useEffect, useState } from 'react';
            newsHeadlines += `${ localNews.articles[i].title} |  `; 
       }
 
-      // setting the news headlines
-      setHeadlines(newsHeadlines);
-      // console.log(headlines);
-
     }
     else{
 
@@ -50,7 +46,7 @@ import { useEffect, useState } from 'react';
       }
 
       // setting the news headlines
-       setHeadlines(newsHeadlines);
+       //setHeadlines(newsHeadlines);
 
     }
 
@@ -58,7 +54,8 @@ import { useEffect, useState } from 'react';
 
    // set the statewith current news
     if(componentMounted){
-        setNewPosts(news);
+      setHeadlines(newsHeadlines);
+      setNewPosts(news);
     }
 
 
