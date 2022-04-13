@@ -5,7 +5,7 @@ function Avatar({ url, className }) {
   return (
 
     <Image
-       src = {url || "/ml.jpg"}
+       src = { url }
         height = { 60 }
         width = { 60 }
        loading ="lazy"

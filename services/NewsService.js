@@ -2,6 +2,19 @@ import http from "./httpService";
 
 
 
+export  function getLocalNews(){
+
+const apiEndpoint = `https://api.newscatcherapi.com/v2/latest_headlines?countries=UG`;
+
+  return  http.get(apiEndpoint , {
+        headers: {
+          'x-api-key':  process.env.api_key 
+        }
+  });
+
+}
+
+
 export  function getNews(category){
 
   const apiEndpoint = `https://api.newscatcherapi.com/v2/search?q=${category}`;

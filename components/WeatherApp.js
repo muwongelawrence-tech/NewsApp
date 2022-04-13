@@ -128,7 +128,7 @@ const getNewCityData = async() => {
 useEffect(() => {
       
   getWeatherData();
-  console.log(weatherData);
+  //console.log(weatherData);
   // getWeatherForecastData();
   // console.log(weatherForecast);
       
@@ -148,8 +148,8 @@ const disableSearch = () => {
 }
 
   return (
-    <div className='flex-col bg-gray-700 text-white rounded-md w-[400px] m-4 
-    max-h-96 p-4  hidden md:inline-flex hover:scale-105 shadow-2xl'>
+    <div className='flex-col bg-gray-700 text-white rounded-md w-auto lg:w-[400px] m-4 
+    max-h-96 p-4  md:hidden lg:inline-flex  hover:scale-105 shadow-2xl'>
          
           <div className=' flex space-x-3  justify-between border-b  m-2'>
 

@@ -7,7 +7,7 @@ import { signIn , signOut , useSession } from "next-auth/client";
 
 
 
-function Header( { onChange }) {
+function Header( { onChange , onPlatform }) {
 
   const[ session ] = useSession();
 
@@ -33,11 +33,10 @@ function Header( { onChange }) {
            
            <div className=''>
               <Image 
-                src = "/logo2.png"
+                src = "/logo1.jpg"
                 height = { 40 }
                 width = { 100 }
-                onClick = { () => router.push("/") }
-                className = "cursor-pointer animate-bounce "
+                className = "cursor-pointer hover:animate-bounce"
                 alt =" "
             />
            </div>
@@ -48,6 +47,7 @@ function Header( { onChange }) {
                      onClick={ (e) => {
                         e.preventDefault();
                         onChange ("uganda");
+                        onPlatform(false);
                         setLocal(true);
                         setGlobal(false);
                         setSports(false);
@@ -60,6 +60,7 @@ function Header( { onChange }) {
                         onClick={ (e) => {
                           e.preventDefault();
                           onChange("Tesla");
+                          onPlatform(false);
                           setLocal(false);
                           setGlobal(true);
                           setSports(false);
@@ -72,6 +73,7 @@ function Header( { onChange }) {
                          onClick={ (e) => {
                           e.preventDefault();
                           onChange ("sports");
+                          onPlatform(false);
                           setLocal(false);
                           setGlobal(false);
                           setSports(true);
@@ -84,6 +86,7 @@ function Header( { onChange }) {
                           onClick={ (e) => {
                             e.preventDefault();
                             onChange ("Entertainment");
+                            onPlatform(false);
                             setLocal(false);
                             setGlobal(false);
                             setSports(false);
@@ -96,6 +99,7 @@ function Header( { onChange }) {
                         onClick={ (e) => {
                           e.preventDefault();
                           onChange ("bitcoin");
+                          onPlatform(false);
                           setLocal(false);
                           setGlobal(false);
                           setSports(false);
@@ -105,9 +109,9 @@ function Header( { onChange }) {
                    >Bitcoin</li>
                  </ul>
 
-                 <div  onClick = { signIn } className='text-gray-300 text-wrap hover:text-gray-100 cursor-pointer'>
-                    <p className=''> hello ,</p>
-                    <p className=''> 
+                 <div  onClick = { !session ? signIn : signOut } className='text-gray-300 text-wrap hover:text-gray-100 cursor-pointer'>
+                    <p className=' font-serif text-lg'> hello ,</p>
+                    <p className=' font-mono '> 
                      { session ? `${ session.user.name }`: "Sign In" }
                     </p>
                 </div>
@@ -115,7 +119,7 @@ function Header( { onChange }) {
                 <div className=''>
 
                   {/* Avatar */}
-                  <Avatar className = "ml-auto" url = { session ? session.user.image :""} />
+                  <Avatar className = "ml-auto" url = { session ? session.user.image :"/avt.png"} />
                 </div>
 
                 
@@ -134,6 +138,7 @@ function Header( { onChange }) {
                    onClick = { (e) => {
                     e.preventDefault();
                      onChange ("uganda");
+                     onPlatform(false);
                    }}
                   >Local News </li>
 
@@ -141,6 +146,7 @@ function Header( { onChange }) {
                           onClick = { (e) => {
                           e.preventDefault();
                              onChange ("Tesla");
+                             onPlatform(false);
                            }}
                   > Global News</li>
 
@@ -148,6 +154,7 @@ function Header( { onChange }) {
                      onClick = { (e) => {
                       e.preventDefault();
                        onChange ("sports");
+                       onPlatform(false);
                      }}
                   > Sports News </li>
 
@@ -155,6 +162,7 @@ function Header( { onChange }) {
                      onClick = { (e) => {
                       e.preventDefault();
                        onChange ("Entertainment");
+                       onPlatform(false);
                      }}
                   > Entertainment</li>
 
@@ -162,8 +170,16 @@ function Header( { onChange }) {
                         onClick = { (e) => {
                           e.preventDefault();
                            onChange ("bitcoin");
+                           onPlatform(false);
                          }}
                   > Bitcoin </li>
+
+                  <li className="nav__item2"
+                        onClick = { (e) => {
+                          e.preventDefault();
+                           onPlatform(true);
+                         }}
+                  > Weather </li>
                 </ul>
               )}
 
