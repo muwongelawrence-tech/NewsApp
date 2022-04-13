@@ -8,11 +8,13 @@ function Post( {  title , summary, media , link , published_date , country }) {
             
            <div className='' >
                
-               <img src= { media  } 
-                  className = " w-full h-full object-cover"
-                  alt="news Image " 
-                  
-               /> 
+               { media && (
+                   <img src= { media  } 
+                   className = " w-full h-full object-cover"
+                   alt=" news Image " 
+                   
+                /> 
+               )}
 
                     {/* <Image 
                         src = { media }
