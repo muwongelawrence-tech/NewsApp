@@ -121,6 +121,11 @@ function Header( { onChange , onPlatform }) {
                           setBitCoin(true);
                        } }
                    >Bitcoin</li>
+
+                  <li className="nav__item"
+                        onClick = { user ? logout : signIn }
+                  > { user ? "Logout" : "  Login" }</li>
+
                  </ul>
 
                  <div  className='text-gray-300 text-wrap hover:text-gray-100 cursor-pointer'>
