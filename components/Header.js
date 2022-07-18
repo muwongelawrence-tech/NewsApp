@@ -1,13 +1,18 @@
 
 import  Image  from 'next/image';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MenuIcon } from "@heroicons/react/outline";
 import Avatar from './Avatar';
+import { auth, provider } from '../firebase';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 
 
 
 function Header( { onChange , onPlatform }) {
+
+    const [ user ] = useAuthState(auth);
+    // console.log(user.photoURL);
 
     const [ local , setLocal] = useState(true);
     const [ global , setGlobal] = useState(false);
@@ -15,6 +20,7 @@ function Header( { onChange , onPlatform }) {
     const [ entertainment , setEntertainment] = useState(false);
     const [ bitcoin ,setBitCoin] = useState(false);
     const [showmenu , setShowmenu] = useState(false);
+    //const [ photourl , setPhotoUrl] = useState('/avt.png');
     
     // collapsing the navbar on a mobile device
     const collapse = (e) => {
@@ -22,6 +28,17 @@ function Header( { onChange , onPlatform }) {
       const show = showmenu === false ? true : false 
       setShowmenu(show) ;
     };
+
+  // siging in using google 
+    const signIn = (e) => {
+      e.preventDefault();
+      auth.signInWithPopup(provider);
+    }
+
+    const  logout = (e) => {
+       e.preventDefault();
+       auth.signOut();
+    }
 
    return (
     <header className='sticky top-0 bg-gray-800  '>
@@ -113,10 +130,10 @@ function Header( { onChange , onPlatform }) {
                     </p>
                 </div>
 
-                <div className=''>
+                <div className='' onClick = { signIn }>
 
                   {/* Avatar */}
-                  <Avatar className = "ml-auto" url = "/avt.png" />
+                  <Avatar className = "ml-auto" url = { user ? user.photoURL : '/avt.png' } />
                 </div>
 
                 
@@ -177,6 +194,9 @@ function Header( { onChange , onPlatform }) {
                            onPlatform(true);
                          }}
                   > Weather </li>
+                  <li className="nav__item2"
+                        onClick = { logout }
+                  > Logout </li>
                 </ul>
               )}
 
